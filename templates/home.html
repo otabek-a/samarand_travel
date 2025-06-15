@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +32,27 @@
         
         .dark {
             color-scheme: dark;
+        }
+
+        .section-image {
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .content-section {
+            margin-bottom: 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                margin-bottom: 4rem;
+            }
         }
     </style>
 </head>
@@ -140,11 +160,128 @@
         </div>
 
         <!-- Final Welcome Message -->
-        <div class="text-center">
+        <div class="text-center mb-20">
             <h3 class="welcome-message text-5xl md:text-7xl font-bold text-orange-600 font-serif drop-shadow-lg">
                 You are welcome!
             </h3>
             <div class="welcome-underline mt-4 w-32 h-1 mx-auto rounded-full bg-orange-600"></div>
+        </div>
+
+        <!-- Want to Try Section -->
+        <div class="content-section">
+            <div class="text-center mb-12">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-gray-900 font-serif mb-6">
+                    Want to try?
+                </h2>
+            </div>
+
+            <!-- Food Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <!-- Images on left for desktop, top for mobile -->
+                <div class="order-2 lg:order-1">
+                    <div class="grid grid-cols-1 gap-6">
+                        <img src="https://images.squarespace-cdn.com/content/v1/63e52e92b5e81e20127d91c0/ceb8c6d4-8e14-4a8d-aa7f-4497df12e172/Samarkand_Plov" 
+                             alt="Traditional Samarkand Plov" 
+                             class="section-image w-full h-64 object-cover">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEzNY3xNWDEN4fiqTPxvocLXp2JYtFAa53ag2N4x1c4cAGIAroaF-zKFHH_9A12t0yTak&usqp=CAU" 
+                                 alt="Traditional Uzbek cuisine" 
+                                 class="section-image w-full h-48 object-cover">
+                            <img src="https://images.happycow.net/venues/1024/34/26/hcmp342667_2305745.jpeg" 
+                                 alt="Vegetarian menu options" 
+                                 class="section-image w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+                <!-- Text on right for desktop, bottom for mobile -->
+                <div class="order-1 lg:order-2">
+                    <p class="section-text text-xl leading-relaxed text-gray-700">
+                        Delicious traditional meals, such as our best <strong>plov</strong>. If you are vegan, we also have a special <strong>vegetarian menu</strong> prepared just for you. You can enjoy all of this in a <em>historical atmosphere</em> with peaceful zones where you can truly relax.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Accommodation Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <!-- Text on left -->
+                <div>
+                    <p class="section-text text-xl leading-relaxed text-gray-700">
+                        We make you feel like you've found refuge in <strong>magical nights</strong> filled with rich history, excellent service, and friendly staff. Our hostels and hotels are so <em>cozy and welcoming</em> that you might even forget about the outside world.
+                    </p>
+                </div>
+                <!-- Image on right -->
+                <div>
+                    <img src="https://news.cgtn.com/news/2025-05-21/Samarkand-A-timeless-jewel-of-the-Silk-Road-1Dyn0hIuUSs/img/33c9abec7078498c9fe7eacbe15e9645/33c9abec7078498c9fe7eacbe15e9645-1920.png" 
+                         alt="Samarkand historical architecture at night" 
+                         class="section-image w-full h-80 object-cover">
+                </div>
+            </div>
+
+            <!-- Museums Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <!-- Images on left -->
+                <div>
+                    <div class="grid grid-cols-1 gap-6">
+                        <img src="https://lh3.googleusercontent.com/proxy/zJIzZbTRlnGJGhYVX3daZjggU6vh4P2NJdJEOEoVJGaA6r0nO12_OKMgCJ7stuU5qqJ7_VqgvE7kXFt0bJYIIVIdiNQ47Tb9sA" 
+                             alt="Ancient artifacts and ossuaries" 
+                             class="section-image w-full h-64 object-cover">
+                        <img src="https://www.orexca.com/img/uzbekistan/samarkand/afrasiab/afrasiab-museum.jpg" 
+                             alt="Afrasiab Museum interior" 
+                             class="section-image w-full h-64 object-cover">
+                    </div>
+                </div>
+                <!-- Text on right -->
+                <div>
+                    <p class="section-text text-xl leading-relaxed text-gray-700">
+                        Discover real <strong>historical treasures</strong> that remind you of ancient times, brought to life through <em>hands-on experiences</em> in our museums.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Historical Roads Section -->
+            <div class="mb-20">
+                <!-- Text above images -->
+                <div class="text-center mb-8">
+                    <p class="section-text text-xl leading-relaxed text-gray-700 max-w-4xl mx-auto">
+                        Want to explore <strong>historical roads</strong> through peaceful neighborhoods? These paths make you feel like you're living in <em>ancient times</em>, surrounded by quiet beauty and deep history.
+                    </p>
+                </div>
+                <!-- Images below text -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <img src="https://www.orphanednation.com/wp-content/uploads/2019/03/DSC_9983.jpg" 
+                         alt="Historical streets of Samarkand" 
+                         class="section-image w-full h-80 object-cover">
+                    <img src="https://live.staticflickr.com/7590/17155745276_698b4bee52_b.jpg" 
+                         alt="Ancient pathways and architecture" 
+                         class="section-image w-full h-80 object-cover">
+                </div>
+            </div>
+
+            <!-- Siyob Bazaar Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Images on left for desktop, top for mobile -->
+                <div class="order-2 lg:order-1">
+                    <div class="grid grid-cols-1 gap-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Siyob_bozori_ichki_qismi.jpg" 
+                             alt="Inside Siyob Bazaar" 
+                             class="section-image w-full h-64 object-cover">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://www.afisha.uz/uploads/media/2025/06/9e571a17a149e18904a1f420fd9f0d11_l.webp" 
+                                 alt="Fresh fruits and spices at Siyob Bazaar" 
+                                 class="section-image w-full h-48 object-cover">
+                            <img src="https://www.afisha.uz/uploads/media/2025/06/3a6474d8cb5860b4455632f45d361c8b_lf.webp" 
+                                 alt="Local vendors at Siyob Bazaar" 
+                                 class="section-image w-full h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+                <!-- Text on right for desktop, bottom for mobile -->
+                <div class="order-1 lg:order-2">
+                    <p class="section-text text-xl leading-relaxed text-gray-700">
+                        <strong>Siyob Bozori</strong> is the heart of Samarkand's daily rhythm — a <em>vibrant and colorful bazaar</em> where tradition meets flavor. Here, you can find fresh fruits, spices, handmade goods, and the warm smiles of local sellers. It's the perfect place to feel the <strong>real spirit of the city</strong> and take a piece of Samarkand with you.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -161,9 +298,11 @@
         const tourGuideText = document.querySelector('.tour-guide-text');
         
         const welcomeUnderline = document.querySelector('.welcome-underline');
+        const sectionHeading = document.querySelector('.section-heading');
         const navLinks = document.querySelectorAll('.nav-link');
         const infoBoxes = document.querySelectorAll('.info-box');
         const boxTexts = document.querySelectorAll('.box-text');
+        const sectionTexts = document.querySelectorAll('.section-text');
 
         function toggleDarkMode() {
             isDark = !isDark;
@@ -186,6 +325,10 @@
                 welcomeMessage.className = 'welcome-message text-5xl md:text-7xl font-bold text-yellow-400 font-serif drop-shadow-lg';
                 welcomeUnderline.className = 'welcome-underline mt-4 w-32 h-1 mx-auto rounded-full bg-yellow-400';
                 
+                if (sectionHeading) {
+                    sectionHeading.className = 'section-heading text-4xl md:text-5xl font-bold text-white font-serif mb-6';
+                }
+                
                 navLinks.forEach(link => {
                     link.className = 'nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-800 hover:bg-gray-700 text-white';
                 });
@@ -196,6 +339,10 @@
                 
                 boxTexts.forEach(text => {
                     text.className = 'box-text text-lg leading-relaxed text-gray-300';
+                });
+
+                sectionTexts.forEach(text => {
+                    text.className = 'section-text text-xl leading-relaxed text-gray-300';
                 });
                 
             } else {
@@ -216,6 +363,10 @@
                 welcomeMessage.className = 'welcome-message text-5xl md:text-7xl font-bold text-orange-600 font-serif drop-shadow-lg';
                 welcomeUnderline.className = 'welcome-underline mt-4 w-32 h-1 mx-auto rounded-full bg-orange-600';
                 
+                if (sectionHeading) {
+                    sectionHeading.className = 'section-heading text-4xl md:text-5xl font-bold text-gray-900 font-serif mb-6';
+                }
+                
                 navLinks[0].className = 'nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 text-gray-900';
                 navLinks[1].className = 'nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 text-gray-900';
                 
@@ -225,6 +376,10 @@
                 
                 boxTexts.forEach(text => {
                     text.className = 'box-text text-lg leading-relaxed text-gray-700';
+                });
+
+                sectionTexts.forEach(text => {
+                    text.className = 'section-text text-xl leading-relaxed text-gray-700';
                 });
             }
         }
