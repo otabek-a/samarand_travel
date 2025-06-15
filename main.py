@@ -7,12 +7,11 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)
-
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# ⬇️ Ma'lumotlar bazasini yaratish
 def init_db():
     with sqlite3.connect("database.db") as conn:
         c = conn.cursor()
@@ -25,28 +24,22 @@ def init_db():
             )
         ''')
 
-# ⬇️ Gunicorn ham chaqira olishi uchun tashqarida turishi kerak
-init_db()
-
-# ⬇️ Sahifalar
 @app.route("/")
 def home():
     return render_template("home.html")
-
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
-
 @app.route("/comment")
 def comment():
     return render_template("index.html")
 
-# ⬇️ Fayl yuklangan joydan olib ko‘rsatish
+
+
 @app.route("/uploads/<filename>")
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-# ⬇️ Kommentlarni olish
 @app.route("/comments", methods=["GET"])
 def get_comments():
     with sqlite3.connect("database.db") as conn:
@@ -56,7 +49,6 @@ def get_comments():
         comments = [{"content": r[0], "media": r[1], "timestamp": r[2]} for r in rows]
     return jsonify(comments)
 
-# ⬇️ Komment yuborish
 @app.route("/comment", methods=["POST"])
 def post_comment():
     content = request.form.get("content")
@@ -76,7 +68,7 @@ def post_comment():
 
     return jsonify({"status": "success"})
 
-# ⬇️ Faqat lokalda test qilish uchun
 if __name__ == "__main__":
-    PORT = int(os.environ.get("PORT", 5300))
-    app.run(host="0.0.0.0", port=PORT)
+    init_db()
+    app.run(host='0.0.0.0', port=5300, debug=True)
+
