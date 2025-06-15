@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Samarqand Trevel</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -23,6 +22,9 @@
             --border-color: #e5e7eb;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --telegram: #0088cc;
+            --whatsapp: #25D366;
+            --instagram: #E1306C;
         }
 
         [data-theme="dark"] {
@@ -176,6 +178,30 @@
             transition: all 0.3s ease;
             animation: slideInLeft 0.6s ease-out;
             border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .contact-card.telegram::before {
+            background: var(--telegram);
+        }
+
+        .contact-card.whatsapp::before {
+            background: var(--whatsapp);
+        }
+
+        .contact-card.instagram::before {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
         [data-theme="dark"] .contact-card {
@@ -191,7 +217,6 @@
         .contact-card:nth-child(3) { animation-delay: 0.2s; }
         .contact-card:nth-child(4) { animation-delay: 0.3s; }
         .contact-card:nth-child(5) { animation-delay: 0.4s; }
-        .contact-card:nth-child(6) { animation-delay: 0.5s; }
 
         .card-header {
             display: flex;
@@ -202,14 +227,38 @@
         .card-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 12px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 20px;
             margin-right: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .phone-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .email-icon {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+        }
+
+        .telegram-icon {
+            background: var(--telegram);
+        }
+
+        .whatsapp-icon {
+            background: var(--whatsapp);
+        }
+
+        .instagram-icon {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .clock-icon {
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
         }
 
         .card-title {
@@ -218,157 +267,44 @@
             color: var(--text-dark);
         }
 
+       
+
         .card-content > div {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
         }
 
         .card-content a {
-            color: var(--primary-color);
+            color: var(--text-dark);
             text-decoration: none;
             transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        [data-theme="dark"] .card-content a {
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .card-content a:hover {
-            text-decoration: underline;
             transform: translateX(4px);
-            display: inline-block;
-        }
-
-        /* WhatsApp and Telegram specific styling */
-        .whatsapp-icon {
-            background: linear-gradient(135deg, #25D366, #128C7E) !important;
-        }
-
-        .telegram-icon {
-            background: linear-gradient(135deg, #0088cc, #005577) !important;
-        }
-
-        /* Contact Form */
-        .form-section {
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .form-card {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
         }
 
-        [data-theme="dark"] .form-card {
-            background: rgba(31, 41, 55, 0.8);
+        [data-theme="dark"] .card-content a:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .form-title {
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .form-label i {
-            margin-right: 8px;
-            color: var(--primary-color);
-        }
-
-        .form-input, .form-textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+        .card-content a i {
             font-size: 16px;
-            background: var(--bg-white);
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-            transform: scale(1.02);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .status-message {
-            margin-top: 1rem;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .status-success {
-            background: #dcfce7;
-            color: #166534;
-            border: 1px solid #bbf7d0;
-        }
-
-        .status-error {
-            background: #fef2f2;
-            color: #dc2626;
-            border: 1px solid #fecaca;
-        }
-
-        [data-theme="dark"] .status-success {
-            background: #064e3b;
-            color: #6ee7b7;
-            border-color: #047857;
-        }
-
-        [data-theme="dark"] .status-error {
-            background: #7f1d1d;
-            color: #fca5a5;
-            border-color: #dc2626;
         }
 
         /* Footer */
@@ -416,6 +352,42 @@
         .footer-copyright {
             font-size: 0.875rem;
             color: var(--text-light);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-icon.telegram {
+            background: var(--telegram);
+        }
+
+        .social-icon.whatsapp {
+            background: var(--whatsapp);
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
         /* Animations */
@@ -472,10 +444,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .form-card {
-                padding: 1.5rem;
-            }
-
             .footer-contacts {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -493,22 +461,6 @@
 
             .contact-card {
                 padding: 1.5rem;
-            }
-        }
-
-        /* Loading spinner */
-        .spinner {
-            width: 20px;
-            height: 20px;
-            border: 2px solid transparent;
-            border-top: 2px solid currentColor;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
             }
         }
     </style>
@@ -551,44 +503,44 @@
             <section class="contact-grid">
                 <div class="contact-card">
                     <div class="card-header">
-                        <div class="card-icon">
+                        <div class="card-icon phone-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <h3 class="card-title" data-translate="phoneNumbers">Phone Numbers</h3>
                     </div>
                     <div class="card-content">
-                        <div><a href="tel:+998904624711">+998 90 462 4711</a></div>
-                        <div><a href="tel:+998914004711">+998 91 400 4711</a></div>
+                        <div><a href="tel:+998904624711"><i class="fas fa-phone-alt"></i> +998 90 462 4711</a></div>
+                        <div><a href="tel:+998914004711"><i class="fas fa-phone-alt"></i> +998 91 400 4711</a></div>
                     </div>
                 </div>
 
                 <div class="contact-card">
                     <div class="card-header">
-                        <div class="card-icon">
+                        <div class="card-icon email-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h3 class="card-title" data-translate="emailAddresses">Email Addresses</h3>
                     </div>
                     <div class="card-content">
-                        <div><a href="mailto:sardorsarsarsar@gmail.com">sardorsarsarsar@gmail.com</a></div>
-                        <div><a href="mailto:otabekabdurasulov245@gmail.com">otabekabdurasulov245@gmail.com</a></div>
+                        <div><a href="mailto:sardorsarsarsar@gmail.com"><i class="fas fa-envelope"></i> sardorsarsarsar@gmail.com</a></div>
+                        <div><a href="mailto:otabekabdurasulov245@gmail.com"><i class="fas fa-envelope"></i> otabekabdurasulov245@gmail.com</a></div>
                     </div>
                 </div>
 
-                <div class="contact-card">
+                <div class="contact-card telegram">
                     <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fab fa-instagram"></i>
+                        <div class="card-icon telegram-icon">
+                            <i class="fab fa-telegram-plane"></i>
                         </div>
-                        <h3 class="card-title" data-translate="instagram">Instagram</h3>
+                        <h3 class="card-title" data-translate="telegram">Telegram</h3>
                     </div>
                     <div class="card-content">
-                        <div><a href="https://instagram.com/keni._.x" target="_blank">@keni._.x</a></div>
-                        <div><a href="https://instagram.com/jxand0" target="_blank">@jxand0</a></div>
+                        <div><a href="https://t.me/jxand0" target="_blank"><i class="fab fa-telegram-plane"></i> @jxand0</a></div>
+                        <div><a href="https://t.me/Otash_0612" target="_blank"><i class="fab fa-telegram-plane"></i> @Otash_0612</a></div>
                     </div>
                 </div>
 
-                <div class="contact-card">
+                <div class="contact-card whatsapp">
                     <div class="card-header">
                         <div class="card-icon whatsapp-icon">
                             <i class="fab fa-whatsapp"></i>
@@ -596,69 +548,33 @@
                         <h3 class="card-title" data-translate="whatsapp">WhatsApp</h3>
                     </div>
                     <div class="card-content">
-                        <div><a href="https://wa.me/998904624711" target="_blank">+998 90 462 4711</a></div>
-                        <div><a href="https://wa.me/998914004711" target="_blank">+998 91 400 4711</a></div>
+                        <div><a href="https://wa.me/998904624711" target="_blank"><i class="fab fa-whatsapp"></i> +998 90 462 4711</a></div>
+                        <div><a href="https://wa.me/998914004711" target="_blank"><i class="fab fa-whatsapp"></i> +998 91 400 4711</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-card instagram">
+                    <div class="card-header">
+                        <div class="card-icon instagram-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3 class="card-title" data-translate="instagram">Instagram</h3>
+                    </div>
+                    <div class="card-content">
+                        <div><a href="https://instagram.com/keni._.x" target="_blank"><i class="fab fa-instagram"></i> @keni._.x</a></div>
                     </div>
                 </div>
 
                 <div class="contact-card">
                     <div class="card-header">
-                        <div class="card-icon telegram-icon">
-                            <i class="fab fa-telegram"></i>
+                        <div class="card-icon clock-icon">
+                            <i class="fas fa-clock"></i>
                         </div>
-                        <h3 class="card-title" data-translate="telegram">Telegram</h3>
+                        <h3 class="card-title" data-translate="workingHours">Working Hours</h3>
                     </div>
                     <div class="card-content">
-                        <div><a href="https://t.me/jxand0" target="_blank">@jxand0</a></div>
-                        <div><a href="https://t.me/Otash_0612" target="_blank">@Otash_0612</a></div>
+                        <div><span data-translate="workingTime" style="padding: 8px 12px; display: block;">09:00 - 20:00 (Local Time)</span></div>
                     </div>
-                </div>
-
-                <div class="contact-card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3 class="card-title" data-translate="address">Address</h3>
-                    </div>
-                    <div class="card-content">
-                        <div data-translate="onlineService">Online Service</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Form -->
-            <section class="form-section">
-                <div class="form-card">
-                    <h2 class="form-title" data-translate="contactForm">Send us a Message</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label class="form-label" for="name">
-                                <i class="fas fa-user"></i>
-                                <span data-translate="name">Name</span>
-                            </label>
-                            <input type="text" id="name" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="email">
-                                <i class="fas fa-envelope"></i>
-                                <span data-translate="email">Email</span>
-                            </label>
-                            <input type="email" id="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="message">
-                                <i class="fas fa-comment"></i>
-                                <span data-translate="message">Message</span>
-                            </label>
-                            <textarea id="message" class="form-textarea" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn" id="submitBtn">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-translate="send">Send Message</span>
-                        </button>
-                        <div id="statusMessage"></div>
-                    </form>
                 </div>
             </section>
         </div>
@@ -671,6 +587,17 @@
                 <div class="footer-logo">
                     <div class="logo-icon">ST</div>
                     <div class="logo-text" data-translate="companyName">Samarqand Trevel</div>
+                </div>
+                <div class="social-icons">
+                    <a href="https://t.me/jxand0" class="social-icon telegram" target="_blank">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://wa.me/998904624711" class="social-icon whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/keni._.x" class="social-icon instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
                 <div class="footer-contacts">
                     <span>+998 90 462 4711</span>
@@ -710,70 +637,30 @@
                 uz: "Email manzillari",
                 ru: "Email адреса"
             },
-            whatsapp: {
-                en: "WhatsApp",
-                uz: "WhatsApp",
-                ru: "WhatsApp"
+            workingHours: {
+                en: "Working Hours",
+                uz: "Ish vaqti",
+                ru: "Рабочие часы"
+            },
+            workingTime: {
+                en: "09:00 - 20:00 (Local Time)",
+                uz: "09:00 - 20:00 (Mahalliy vaqt)",
+                ru: "09:00 - 20:00 (Местное время)"
             },
             telegram: {
                 en: "Telegram",
                 uz: "Telegram",
                 ru: "Telegram"
             },
-            address: {
-                en: "Address",
-                uz: "Manzil",
-                ru: "Адрес"
-            },
-            onlineService: {
-                en: "Samarkand",
-                uz: "Samarkand",
-                ru: "Самарканд"
+            whatsapp: {
+                en: "WhatsApp",
+                uz: "WhatsApp",
+                ru: "WhatsApp"
             },
             instagram: {
                 en: "Instagram",
                 uz: "Instagram",
                 ru: "Instagram"
-            },
-            contactForm: {
-                en: "Send us a Message",
-                uz: "Bizga xabar yuboring",
-                ru: "Отправьте нам сообщение"
-            },
-            name: {
-                en: "Name",
-                uz: "Ism",
-                ru: "Имя"
-            },
-            email: {
-                en: "Email",
-                uz: "Email",
-                ru: "Email"
-            },
-            message: {
-                en: "Message",
-                uz: "Xabar",
-                ru: "Сообщение"
-            },
-            send: {
-                en: "Send Message",
-                uz: "Xabar yuborish",
-                ru: "Отправить сообщение"
-            },
-            sending: {
-                en: "Sending...",
-                uz: "Yuborilmoqda...",
-                ru: "Отправка..."
-            },
-            successMessage: {
-                en: "Message sent successfully! We'll get back to you soon.",
-                uz: "Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
-                ru: "Сообщение успешно отправлено! Мы скоро свяжемся с вами."
-            },
-            errorMessage: {
-                en: "Failed to send message. Please try again.",
-                uz: "Xabarni yuborib bo'lmadi. Iltimos, qayta urinib ko'ring.",
-                ru: "Не удалось отправить сообщение. Пожалуйста, попробуйте еще раз."
             },
             copyright: {
                 en: "© 2025 Samarqand Trevel. All rights reserved.",
@@ -820,64 +707,6 @@
             const icon = document.querySelector('#themeToggle i');
             icon.className = currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
         }
-
-        // EmailJS initialization
-        (function(){
-            emailjs.init("YOUR_PUBLIC_KEY"); // Bu yerga sizning EmailJS public key ni qo'ying
-        })();
-
-        // Form functionality
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const statusMessage = document.getElementById('statusMessage');
-            const btnText = submitBtn.querySelector('span');
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            btnText.textContent = translations.sending[currentLanguage];
-            submitBtn.innerHTML = '<div class="spinner"></div>' + btnText.outerHTML;
-            
-            // Get form data
-            const formData = {
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
-                to_name: "Samarqand Trevel", // Sizning kompaniya nomingiz
-            };
-            
-            try {
-                // Send email using EmailJS
-                const response = await emailjs.send(
-                    'YOUR_SERVICE_ID',    // Bu yerga sizning EmailJS service ID ni qo'ying
-                    'YOUR_TEMPLATE_ID',   // Bu yerga sizning EmailJS template ID ni qo'ying
-                    formData
-                );
-                
-                console.log('Email sent successfully:', response);
-                
-                // Show success message
-                statusMessage.innerHTML = `<div class="status-message status-success">${translations.successMessage[currentLanguage]}</div>`;
-                
-                // Reset form
-                document.getElementById('contactForm').reset();
-                
-            } catch (error) {
-                console.error('Email sending failed:', error);
-                // Show error message
-                statusMessage.innerHTML = `<div class="status-message status-error">${translations.errorMessage[currentLanguage]}</div>`;
-            } finally {
-                // Reset button
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span data-translate="send">' + translations.send[currentLanguage] + '</span>';
-                
-                // Clear status message after 5 seconds
-                setTimeout(() => {
-                    statusMessage.innerHTML = '';
-                }, 5000);
-            }
-        });
 
         // Smooth scrolling for any internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
