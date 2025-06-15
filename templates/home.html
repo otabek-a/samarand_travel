@@ -1,12 +1,275 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Home Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarkand Travel - Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPlek67XBiFEW6WefJ_DitgS2wdpnenM-pCQ&s');
+        }
+        
+        .typing-cursor {
+            border-right: 2px solid white;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: white; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        .dark {
+            color-scheme: dark;
+        }
+    </style>
 </head>
-<body>
-  <h1>Welcome to the Home Page</h1>
-  <a href="/comment">Comment</a>
-  <a href="/contact">Contact</a>
+<body class="min-h-screen transition-colors duration-300 bg-white text-gray-900">
+    <!-- Navigation Menu -->
+    <nav class="fixed top-0 right-0 z-50 p-6">
+        <div class="flex items-center space-x-4">
+            <a href="/comment" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 text-gray-900">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Comment</span>
+            </a>
+
+            <a href="/contact" class="nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 text-gray-900">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Contact</span>
+            </a>
+
+            <button id="darkModeToggle" class="flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors text-lg bg-gray-800 hover:bg-gray-700 text-white">
+                <svg id="moonIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sunIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <span id="modeText">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Fixed Image -->
+    <div class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg">
+            <div id="heroOverlay" class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+
+        <!-- Animated Welcome Text Overlay -->
+        <div id="welcomeTextContainer" class="absolute inset-0 flex items-center justify-center z-30" style="display: none;">
+            <div class="bg-black bg-opacity-50 rounded-2xl p-8">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4 font-serif">
+                    <span id="animatedText" class="inline-block typing-cursor"></span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-16">
+        <!-- Main Sentence -->
+        <div class="text-center mb-16">
+            <h2 class="main-heading text-3xl md:text-5xl font-bold mb-8 leading-relaxed text-gray-900">
+                <span class="block mb-4">We are going to be your</span>
+                <span class="tour-guide-text text-blue-600 font-serif italic">tour guide</span>
+                <span class="block mt-4">if you are...</span>
+            </h2>
+        </div>
+
+        <!-- Three Boxes -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Box 1 -->
+            <div class="info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-blue-500">
+                    <span class="text-2xl text-white">🏛️</span>
+                </div>
+                <p class="box-text text-lg leading-relaxed text-gray-700">
+                    If you are interested in the <strong>history of Samarkand</strong> — such as Islamic civilization, Muslim
+                    scholars, old mosques, and mausoleums — and you want to explore hidden places that no tourist company
+                    shows you, connect with local life, travel through peaceful neighborhoods, and need an expert tour guide.
+                </p>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-green-500">
+                    <span class="text-2xl text-white">🤝</span>
+                </div>
+                <p class="box-text text-lg leading-relaxed text-gray-700">
+                    If you're curious about making <strong>good friendships</strong> with your guide, want information about
+                    the best hostels or hotels, want to try delicious traditional meals in good restaurants, and are looking
+                    for the best historical gift shops or bazaars before you return.
+                </p>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-purple-500">
+                    <span class="text-2xl text-white">❤️</span>
+                </div>
+                <p class="box-text text-lg leading-relaxed text-gray-700">
+                    If you're <strong>friendly and love history</strong> deeply in your heart — because we are not wizards who
+                    can make you like Samarkand Travel by waving wands. We are more productive when we see your happiness.
+                </p>
+            </div>
+        </div>
+
+        <!-- Final Welcome Message -->
+        <div class="text-center">
+            <h3 class="welcome-message text-5xl md:text-7xl font-bold text-orange-600 font-serif drop-shadow-lg">
+                You are welcome!
+            </h3>
+            <div class="welcome-underline mt-4 w-32 h-1 mx-auto rounded-full bg-orange-600"></div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode functionality
+        let isDark = false;
+        const body = document.body;
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
+        const modeText = document.getElementById('modeText');
+        const heroOverlay = document.getElementById('heroOverlay');
+        const mainHeading = document.querySelector('.main-heading');
+        const tourGuideText = document.querySelector('.tour-guide-text');
+        
+        const welcomeUnderline = document.querySelector('.welcome-underline');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const infoBoxes = document.querySelectorAll('.info-box');
+        const boxTexts = document.querySelectorAll('.box-text');
+
+        function toggleDarkMode() {
+            isDark = !isDark;
+            
+            if (isDark) {
+                // Dark mode styles
+                body.classList.add('dark', 'bg-gray-900', 'text-white');
+                body.classList.remove('bg-white', 'text-gray-900');
+                
+                heroOverlay.className = 'absolute inset-0 bg-black bg-opacity-60';
+                
+                darkModeToggle.className = 'flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors text-lg bg-yellow-600 hover:bg-yellow-500 text-white';
+                
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                modeText.textContent = 'Light';
+                
+                mainHeading.className = 'main-heading text-3xl md:text-5xl font-bold mb-8 leading-relaxed text-white';
+                tourGuideText.className = 'tour-guide-text text-blue-400 font-serif italic';
+                welcomeMessage.className = 'welcome-message text-5xl md:text-7xl font-bold text-yellow-400 font-serif drop-shadow-lg';
+                welcomeUnderline.className = 'welcome-underline mt-4 w-32 h-1 mx-auto rounded-full bg-yellow-400';
+                
+                navLinks.forEach(link => {
+                    link.className = 'nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-800 hover:bg-gray-700 text-white';
+                });
+                
+                infoBoxes.forEach(box => {
+                    box.className = 'info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gray-800 border border-gray-700';
+                });
+                
+                boxTexts.forEach(text => {
+                    text.className = 'box-text text-lg leading-relaxed text-gray-300';
+                });
+                
+            } else {
+                // Light mode styles
+                body.classList.remove('dark', 'bg-gray-900', 'text-white');
+                body.classList.add('bg-white', 'text-gray-900');
+                
+                heroOverlay.className = 'absolute inset-0 bg-black bg-opacity-40';
+                
+                darkModeToggle.className = 'flex items-center space-x-2 px-6 py-3 rounded-lg transition-colors text-lg bg-gray-800 hover:bg-gray-700 text-white';
+                
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                modeText.textContent = 'Dark';
+                
+                mainHeading.className = 'main-heading text-3xl md:text-5xl font-bold mb-8 leading-relaxed text-gray-900';
+                tourGuideText.className = 'tour-guide-text text-blue-600 font-serif italic';
+                welcomeMessage.className = 'welcome-message text-5xl md:text-7xl font-bold text-orange-600 font-serif drop-shadow-lg';
+                welcomeUnderline.className = 'welcome-underline mt-4 w-32 h-1 mx-auto rounded-full bg-orange-600';
+                
+                navLinks[0].className = 'nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 text-gray-900';
+                navLinks[1].className = 'nav-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 text-gray-900';
+                
+                infoBoxes[0].className = 'info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200';
+                infoBoxes[1].className = 'info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200';
+                infoBoxes[2].className = 'info-box p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200';
+                
+                boxTexts.forEach(text => {
+                    text.className = 'box-text text-lg leading-relaxed text-gray-700';
+                });
+            }
+        }
+
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+        // Animated welcome text functionality
+        const welcomeTextContainer = document.getElementById('welcomeTextContainer');
+        const animatedTextElement = document.getElementById('animatedText');
+        const welcomeMessage = "Welcome to Samarkand Travel official website";
+
+        function runAnimation() {
+            // Start completely hidden
+            welcomeTextContainer.style.display = 'none';
+            animatedTextElement.textContent = '';
+
+            // Wait 2 seconds, then start showing the text
+            setTimeout(() => {
+                welcomeTextContainer.style.display = 'flex';
+                let index = 0;
+
+                const typeInterval = setInterval(() => {
+                    if (index <= welcomeMessage.length) {
+                        animatedTextElement.textContent = welcomeMessage.slice(0, index);
+                        index++;
+                    } else {
+                        clearInterval(typeInterval);
+
+                        // Show complete text for 3 seconds, then hide it
+                        setTimeout(() => {
+                            welcomeTextContainer.style.display = 'none';
+                            animatedTextElement.textContent = '';
+
+                            // Wait 2 seconds before starting the cycle again
+                            setTimeout(() => {
+                                runAnimation();
+                            }, 2000);
+                        }, 3000);
+                    }
+                }, 80);
+            }, 2000);
+        }
+
+        // Start the animation cycle when page loads
+        window.addEventListener('load', runAnimation);
+    </script>
 </body>
 </html>
