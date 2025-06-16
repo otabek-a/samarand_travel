@@ -258,7 +258,7 @@
             </div>
 
             <!-- Siyob Bazaar Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
                 <!-- Images on left for desktop, top for mobile -->
                 <div class="order-2 lg:order-1">
                     <div class="grid grid-cols-1 gap-6">
@@ -282,6 +282,57 @@
                     </p>
                 </div>
             </div>
+
+            <!-- NEW SECTION 1: First Paper - Text on left, picture on right -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <!-- Text on left -->
+                <div>
+                    <p class="section-text text-xl leading-relaxed text-gray-700">
+                        We can help you capture memorable moments that make you feel like you're living in history. The best time plan to visit attractive places.
+                    </p>
+                </div>
+                <!-- Picture on right -->
+                <div>
+                    <img src="https://pixway.com/wp-content/uploads/2018/04/151003-registan15-show-1800xlarge.1459872078-uai-720x480.jpg" 
+                         alt="Memorable moments in Samarkand historical places" 
+                         class="section-image w-full h-80 object-cover">
+                </div>
+            </div>
+
+            <!-- NEW SECTION 2: Coffee Break - Picture on left, text on right -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <!-- Picture on left -->
+                <div>
+                    <img src="https://stlawyers.ca/wp-content/uploads/2022/09/coffee-breaks-ontario-employee-e1663248493305-1200x625.jpg" 
+                         alt="Coffee break time in peaceful setting" 
+                         class="section-image w-full h-80 object-cover">
+                </div>
+                <!-- Text on right -->
+                <div>
+                    <p class="section-text text-xl leading-relaxed text-gray-700">
+                        Time to take a coffee break—not to rush, but to slow down and reflect. Just like in old times when great minds gathered to debate history, ideas, and the future over a simple cup of coffee.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NEW SECTION 3: Historical Legends - Sentence on top, 2 pictures below -->
+            <div class="mb-20">
+                <!-- Text on top -->
+                <div class="text-center mb-8">
+                    <p class="section-text text-xl leading-relaxed text-gray-700 max-w-4xl mx-auto">
+                        History isn't always lovely or filled with happy moments. Behind the beauty lie true legends—stories marked by brilliant minds and bloody periods of struggle and sacrifice.
+                    </p>
+                </div>
+                <!-- Two pictures below -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSKRX3V-UkE7Qv-mghnI0BKY3HhoesflSzHqomtWkNm23PE8_xMWrDiHdnPWTMESqp6XbboffE" 
+                         alt="Ulugbek Observatory historical site" 
+                         class="section-image w-full h-80 object-cover">
+                    <img src="https://www.advantour.com/img/uzbekistan/samarkand/museums/ulugbek-observatory/ulugbek-observatory-banner.jpg" 
+                         alt="Ulugbek Observatory ruins and artifacts" 
+                         class="section-image w-full h-80 object-cover">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -296,7 +347,7 @@
         const heroOverlay = document.getElementById('heroOverlay');
         const mainHeading = document.querySelector('.main-heading');
         const tourGuideText = document.querySelector('.tour-guide-text');
-        
+        const welcomeMessage = document.querySelector('.welcome-message');
         const welcomeUnderline = document.querySelector('.welcome-underline');
         const sectionHeading = document.querySelector('.section-heading');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -389,7 +440,7 @@
         // Animated welcome text functionality
         const welcomeTextContainer = document.getElementById('welcomeTextContainer');
         const animatedTextElement = document.getElementById('animatedText');
-        const welcomeMessage = "Welcome to Samarkand Travel official website";
+        const welcomeMessageText = "Welcome to Samarkand Travel official website";
 
         function runAnimation() {
             // Start completely hidden
@@ -402,8 +453,8 @@
                 let index = 0;
 
                 const typeInterval = setInterval(() => {
-                    if (index <= welcomeMessage.length) {
-                        animatedTextElement.textContent = welcomeMessage.slice(0, index);
+                    if (index <= welcomeMessageText.length) {
+                        animatedTextElement.textContent = welcomeMessageText.slice(0, index);
                         index++;
                     } else {
                         clearInterval(typeInterval);
