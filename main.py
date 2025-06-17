@@ -7,9 +7,9 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)
+
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def init_db():
@@ -27,14 +27,14 @@ def init_db():
 @app.route("/")
 def home():
     return render_template("home.html")
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
 @app.route("/comment")
 def comment():
     return render_template("index.html")
-
-
 
 @app.route("/uploads/<filename>")
 def uploaded_file(filename):
@@ -71,4 +71,3 @@ def post_comment():
 if __name__ == "__main__":
     init_db()
     app.run(host='0.0.0.0', port=5300, debug=True)
-
