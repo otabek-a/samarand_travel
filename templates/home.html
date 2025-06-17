@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samarkand Travel - Official Website</title>
+    <title>Samarkand Travel - Your Gateway to Ancient Wonders</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
@@ -16,81 +16,84 @@
             font-family: 'Playfair Display', serif;
         }
         
-        .hero-bg {
-            background-image: url('https://d39raawggeifpx.cloudfront.net/media/bneGenericUzbekistanSamarkandRegistan.jpeg');
-            background-size: cover;
-            background-position: center 30%;
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
         
-        .typing-cursor {
-            border-right: 2px solid white;
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { border-color: white; }
-            51%, 100% { border-color: transparent; }
-        }
-        
-        .dark {
-            color-scheme: dark;
-        }
-
-        .section-image {
-            border-radius: 1rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section-image:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Menu Dropdown - Compact for both mobile and desktop */
-        .menu-dropdown {
-            transform: translateY(-10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .menu-dropdown.show {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Professional Footer */
-        .professional-footer {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-            position: relative;
-        }
-
-        .professional-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-bg {
-                background-position: center 20%;
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
             }
+            50% {
+                opacity: .5;
+            }
+        }
+        
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
+        }
+        
+        .bg-opacity-90 {
+            background-color: rgb(0 0 0 / 0.9);
+        }
+        
+        .bg-opacity-95 {
+            background-color: rgb(0 0 0 / 0.95);
+        }
+        
+        .bg-opacity-40 {
+            background-color: rgb(0 0 0 / 0.4);
+        }
+        
+        .bg-opacity-60 {
+            background-color: rgb(0 0 0 / 0.6);
+        }
+        
+        .bg-opacity-50 {
+            background-color: rgb(0 0 0 / 0.5);
+        }
+        
+        .hover\:scale-105:hover {
+            transform: scale(1.05);
+        }
+        
+        .hover\:shadow-xl:hover {
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .drop-shadow-lg {
+            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+        }
+        
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
         }
     </style>
 </head>
-<body class="min-h-screen transition-colors duration-300 bg-white text-gray-900">
-    <!-- Mobile Navigation Menu - Compact like desktop -->
+<body class="min-h-screen transition-colors duration-300" id="body">
+    <!-- Mobile Navigation Menu -->
     <nav class="md:hidden fixed top-4 right-4 z-50">
         <div class="relative">
-            <button id="mobileMenuToggle" class="flex items-center space-x-2 px-4 py-3 rounded-lg bg-white bg-opacity-90 backdrop-blur-sm border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700">
-                <svg id="hamburgerIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button
+                id="mobileMenuToggle"
+                class="flex items-center space-x-2 px-4 py-3 rounded-lg backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -98,29 +101,64 @@
                 <span class="font-medium text-sm">Menu</span>
             </button>
 
-            <!-- Mobile Menu Dropdown - Compact -->
-            <div id="mobileMenuDropdown" class="menu-dropdown absolute top-full right-0 mt-2 w-52 bg-white bg-opacity-95 backdrop-blur-sm border border-gray-200 rounded-lg shadow-xl">
+            <div
+                id="mobileMenuDropdown"
+                class="absolute top-full right-0 mt-2 w-52 backdrop-blur-sm border rounded-lg shadow-xl transition-all duration-300 opacity-0 invisible -translate-y-2"
+            >
                 <div class="p-3 space-y-1">
-                    <a href="/comment" class="flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-blue-50 hover:text-blue-600 text-gray-700">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <a
+                        href="/comment"
+                        class="flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-blue-50 hover:text-blue-600"
+                    >
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
                         <span class="font-medium">Comment</span>
                     </a>
-                    <a href="/contact" class="flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-green-50 hover:text-green-600 text-gray-700">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <a
+                        href="/contact"
+                        class="flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-green-50 hover:text-green-600"
+                    >
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <span class="font-medium">Contact</span>
                     </a>
-
                     <div class="border-t border-gray-200 my-2"></div>
-
-                    <button id="mobileDarkToggle" class="w-full flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-gray-50 text-gray-700">
-                        <svg id="mobileMoonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="mobileSunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <button
+                        id="mobileThemeToggle"
+                        class="w-full flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-gray-50"
+                    >
+                        <svg
+                            id="mobileSunIcon"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="hidden"
+                        >
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -131,18 +169,43 @@
                             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
-                        <span id="mobileModeText" class="font-medium">Dark Mode</span>
+                        <svg
+                            id="mobileMoonIcon"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <span class="font-medium" id="mobileThemeText">Dark Mode</span>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Desktop Navigation Menu - Compact -->
+    <!-- Desktop Navigation Menu -->
     <nav class="hidden md:block fixed top-6 right-6 z-50">
         <div class="relative">
-            <button id="desktopMenuToggle" class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-90 backdrop-blur-sm border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button
+                id="desktopMenuToggle"
+                class="flex items-center space-x-2 px-4 py-2 rounded-lg backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -150,30 +213,64 @@
                 <span class="font-medium text-sm">Menu</span>
             </button>
 
-            <!-- Desktop Menu Dropdown - Compact Size -->
-            <div id="desktopMenuDropdown" class="menu-dropdown absolute top-full right-0 mt-2 w-48 bg-white bg-opacity-95 backdrop-blur-sm border border-gray-200 rounded-lg shadow-xl">
+            <div
+                id="desktopMenuDropdown"
+                class="absolute top-full right-0 mt-2 w-48 backdrop-blur-sm border rounded-lg shadow-xl transition-all duration-300 opacity-0 invisible -translate-y-2"
+            >
                 <div class="p-3 space-y-1">
-                    <a href="/comment" class="flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-blue-50 hover:text-blue-600 text-gray-700 text-sm">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <a
+                        href="/comment"
+                        class="flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-blue-50 hover:text-blue-600 text-sm"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
                         <span class="font-medium">Comment</span>
                     </a>
-                    
-                    <a href="/contact" class="flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-green-50 hover:text-green-600 text-gray-700 text-sm">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <a
+                        href="/contact"
+                        class="flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-green-50 hover:text-green-600 text-sm"
+                    >
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <span class="font-medium">Contact</span>
                     </a>
-
                     <div class="border-t border-gray-200 my-2"></div>
-
-                    <button id="desktopDarkToggle" class="w-full flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-gray-50 text-gray-700 text-sm">
-                        <svg id="desktopMoonIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="desktopSunIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <button
+                        id="desktopThemeToggle"
+                        class="w-full flex items-center space-x-2 p-2 rounded-md transition-colors hover:bg-gray-50 text-sm"
+                    >
+                        <svg
+                            id="desktopSunIcon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="hidden"
+                        >
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -184,7 +281,20 @@
                             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
-                        <span id="desktopModeText" class="font-medium">Dark Mode</span>
+                        <svg
+                            id="desktopMoonIcon"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <span class="font-medium" id="desktopThemeText">Dark Mode</span>
                     </button>
                 </div>
             </div>
@@ -193,15 +303,17 @@
 
     <!-- Hero Section -->
     <div class="relative h-[60vh] md:h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg">
+        <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style="background-image: url('https://d39raawggeifpx.cloudfront.net/media/bneGenericUzbekistanSamarkandRegistan.jpeg'); background-position: center 30%;"
+        >
             <div id="heroOverlay" class="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
-        <!-- Animated Welcome Text Overlay -->
-        <div id="welcomeTextContainer" class="absolute inset-0 flex items-center justify-center z-30" style="display: none;">
+        <div id="welcomeTextContainer" class="absolute inset-0 flex items-center justify-center z-30 hidden">
             <div class="bg-black bg-opacity-50 rounded-2xl p-4 md:p-8 mx-4">
                 <h1 class="text-xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-white text-center font-serif">
-                    <span id="animatedText" class="inline-block typing-cursor"></span>
+                    <span id="animatedText" class="inline-block border-r-2 border-white animate-pulse"></span>
                 </h1>
             </div>
         </div>
@@ -211,45 +323,42 @@
     <div class="container mx-auto px-4 py-8 md:py-16">
         <!-- Main Sentence -->
         <div class="text-center mb-8 md:mb-16">
-            <h2 class="main-heading text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-8 leading-relaxed text-gray-900">
+            <h2 id="mainTitle" class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-8 leading-relaxed text-gray-900">
                 <span class="block mb-2 md:mb-4">We are going to be your</span>
-                <span class="tour-guide-text text-blue-600 font-serif italic">tour guide</span>
+                <span class="font-serif italic text-blue-600">tour guide</span>
                 <span class="block mt-2 md:mt-4">if you are...</span>
             </h2>
         </div>
 
         <!-- Three Boxes -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
-            <!-- Box 1 -->
-            <div class="info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200">
+            <div id="box1" class="p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200">
                 <div class="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 md:mb-6 bg-blue-500">
                     <span class="text-xl md:text-2xl text-white">🏛️</span>
                 </div>
-                <p class="box-text text-base md:text-lg leading-relaxed text-gray-700">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700">
                     If you are interested in the <strong>history of Samarkand</strong> — such as Islamic civilization, Muslim
                     scholars, old mosques, and mausoleums — and you want to explore hidden places that no tourist company
                     shows you, connect with local life, travel through peaceful neighborhoods, and need an expert tour guide.
                 </p>
             </div>
 
-            <!-- Box 2 -->
-            <div class="info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200">
+            <div id="box2" class="p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200">
                 <div class="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 md:mb-6 bg-green-500">
                     <span class="text-xl md:text-2xl text-white">🤝</span>
                 </div>
-                <p class="box-text text-base md:text-lg leading-relaxed text-gray-700">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700">
                     If you're curious about making <strong>good friendships</strong> with your guide, want information about
                     the best hostels or hotels, want to try delicious traditional meals in good restaurants, and are looking
                     for the best historical gift shops or bazaars before you return.
                 </p>
             </div>
 
-            <!-- Box 3 -->
-            <div class="info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 md:col-span-2 lg:col-span-1 bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200">
+            <div id="box3" class="p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 md:col-span-2 lg:col-span-1 bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200">
                 <div class="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 md:mb-6 bg-purple-500">
                     <span class="text-xl md:text-2xl text-white">❤️</span>
                 </div>
-                <p class="box-text text-base md:text-lg leading-relaxed text-gray-700">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700">
                     If you're <strong>friendly and love history</strong> deeply in your heart — because we are not wizards who
                     can make you like Samarkand Travel by waving wands. We are more productive when we see your happiness.
                 </p>
@@ -258,16 +367,16 @@
 
         <!-- Final Welcome Message -->
         <div class="text-center mb-12 md:mb-20">
-            <h3 class="welcome-message text-3xl md:text-5xl lg:text-7xl font-bold text-orange-600 font-serif drop-shadow-lg">
+            <h3 id="welcomeMessage" class="text-3xl md:text-5xl lg:text-7xl font-bold font-serif drop-shadow-lg text-orange-600">
                 You are welcome!
             </h3>
-            <div class="welcome-underline mt-4 w-24 md:w-32 h-1 mx-auto rounded-full bg-orange-600"></div>
+            <div id="welcomeUnderline" class="mt-4 w-24 md:w-32 h-1 mx-auto rounded-full bg-orange-600"></div>
         </div>
 
         <!-- Want to Try Section -->
         <div class="space-y-12 md:space-y-20">
             <div class="text-center mb-8 md:mb-12">
-                <h2 class="section-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-serif mb-6">
+                <h2 id="wantToTryTitle" class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-6 text-gray-900">
                     Want to try?
                 </h2>
             </div>
@@ -276,22 +385,30 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="order-2 lg:order-1">
                     <div class="grid grid-cols-1 gap-4 md:gap-6">
-                        <img src="https://images.squarespace-cdn.com/content/v1/63e52e92b5e81e20127d91c0/ceb8c6d4-8e14-4a8d-aa7f-4497df12e172/Samarkand_Plov" 
-                             alt="Traditional Samarkand Plov" 
-                             class="section-image w-full h-48 md:h-64 object-cover">
+                        <img
+                            src="https://images.squarespace-cdn.com/content/v1/63e52e92b5e81e20127d91c0/ceb8c6d4-8e14-4a8d-aa7f-4497df12e172/Samarkand_Plov"
+                            alt="Traditional Samarkand Plov"
+                            class="rounded-xl shadow-lg w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-300"
+                        />
                         <div class="grid grid-cols-2 gap-3 md:gap-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEzNY3xNWDEN4fiqTPxvocLXp2JYtFAa53ag2N4x1c4cAGIAroaF-zKFHH_9A12t0yTak&usqp=CAU" 
-                                 alt="Traditional Uzbek cuisine" 
-                                 class="section-image w-full h-32 md:h-48 object-cover">
-                            <img src="https://images.happycow.net/venues/1024/34/26/hcmp342667_2305745.jpeg" 
-                                 alt="Vegetarian menu options" 
-                                 class="section-image w-full h-32 md:h-48 object-cover">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEzNY3xNWDEN4fiqTPxvocLXp2JYtFAa53ag2N4x1c4cAGIAroaF-zKFHH_9A12t0yTak&usqp=CAU"
+                                alt="Traditional Uzbek cuisine"
+                                class="rounded-xl shadow-lg w-full h-32 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                            <img
+                                src="https://images.happycow.net/venues/1024/34/26/hcmp342667_2305745.jpeg"
+                                alt="Vegetarian menu options"
+                                class="rounded-xl shadow-lg w-full h-32 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            />
                         </div>
                     </div>
                 </div>
                 <div class="order-1 lg:order-2">
-                    <p class="section-text text-lg md:text-xl leading-relaxed text-gray-700">
-                        Delicious traditional meals, such as our best <strong>plov</strong>. If you are vegan, we also have a special <strong>vegetarian menu</strong> prepared just for you. You can enjoy all of this in a <em>historical atmosphere</em> with peaceful zones where you can truly relax.
+                    <p id="foodText" class="text-lg md:text-xl leading-relaxed text-gray-700">
+                        Delicious traditional meals, such as our best <strong>plov</strong>. If you are vegan, we also have a
+                        special <strong>vegetarian menu</strong> prepared just for you. You can enjoy all of this in a
+                        <em>historical atmosphere</em> with peaceful zones where you can truly relax.
                     </p>
                 </div>
             </div>
@@ -299,71 +416,95 @@
             <!-- Accommodation Section -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
-                    <p class="section-text text-lg md:text-xl leading-relaxed text-gray-700">
-                        We make you feel like you've found refuge in <strong>magical nights</strong> filled with rich history, excellent service, and friendly staff. Our hostels and hotels are so <em>cozy and welcoming</em> that you might even forget about the outside world.
+                    <p id="accommodationText" class="text-lg md:text-xl leading-relaxed text-gray-700">
+                        We make you feel like you've found refuge in <strong>magical nights</strong> filled with rich history,
+                        excellent service, and friendly staff. Our hostels and hotels are so <em>cozy and welcoming</em> that
+                        you might even forget about the outside world.
                     </p>
                 </div>
                 <div>
-                    <img src="https://news.cgtn.com/news/2025-05-21/Samarkand-A-timeless-jewel-of-the-Silk-Road-1Dyn0hIuUSs/img/33c9abec7078498c9fe7eacbe15e9645/33c9abec7078498c9fe7eacbe15e9645-1920.png" 
-                         alt="Samarkand historical architecture at night" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
+                    <img
+                        src="https://news.cgtn.com/news/2025-05-21/Samarkand-A-timeless-jewel-of-the-Silk-Road-1Dyn0hIuUSs/img/33c9abec7078498c9fe7eacbe15e9645/33c9abec7078498c9fe7eacbe15e9645-1920.png"
+                        alt="Samarkand historical architecture at night"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
                 </div>
             </div>
 
-            <!-- Museums Section - Text first, then 2 pictures side by side -->
+            <!-- Museums Section -->
             <div class="space-y-6 md:space-y-8">
                 <div class="text-center">
-                    <p class="section-text text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
-                        Discover real <strong>historical treasures</strong> that remind you of ancient times, brought to life through <em>hands-on experiences</em> in our museums.
+                    <p id="museumsText" class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
+                        Discover real <strong>historical treasures</strong> that remind you of ancient times, brought to life
+                        through <em>hands-on experiences</em> in our museums.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                    <img src="https://lh3.googleusercontent.com/proxy/zJIzZbTRlnGJGhYVX3daZjggU6vh4P2NJdJEOEoVJGaA6r0nO12_OKMgCJ7stuU5qqJ7_VqgvE7kXFt0bJYIIVIdiNQ47Tb9sA" 
-                         alt="Ancient artifacts and ossuaries" 
-                         class="section-image w-full h-48 md:h-64 object-cover">
-                    <img src="https://www.orexca.com/img/uzbekistan/samarkand/afrasiab/afrasiab-museum.jpg" 
-                         alt="Afrasiab Museum interior" 
-                         class="section-image w-full h-48 md:h-64 object-cover">
+                    <img
+                        src="https://t3.ftcdn.net/jpg/10/45/77/80/360_F_1045778032_FI7FTQThzvJw3FXlPWAiH11KIfijudNB.jpg"
+                        alt="Ancient artifacts and ossuaries"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <img
+                        src="https://www.orexca.com/img/uzbekistan/samarkand/afrasiab/afrasiab-museum.jpg"
+                        alt="Afrasiab Museum interior"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-300"
+                    />
                 </div>
-            </div>
-
-            <!-- Historical Roads Section - Text first, then pictures below -->
+            </div><!-- Historical Roads Section -->
             <div class="space-y-6 md:space-y-8">
                 <div class="text-center">
-                    <p class="section-text text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
-                        Want to explore <strong>historical roads</strong> through peaceful neighborhoods? These paths make you feel like you're living in <em>ancient times</em>, surrounded by quiet beauty and deep history.
+                    <p id="historicalRoadsText" class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
+                        Want to explore <strong>historical roads</strong> through peaceful neighborhoods? These paths make you
+                        feel like you're living in <em>ancient times</em>, surrounded by quiet beauty and deep history.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                    <img src="https://www.orphanednation.com/wp-content/uploads/2019/03/DSC_9983.jpg" 
-                         alt="Historical streets of Samarkand" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
-                    <img src="https://live.staticflickr.com/7590/17155745276_698b4bee52_b.jpg" 
-                         alt="Ancient pathways and architecture" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
+            
+                <!-- Flex row for side-by-side images -->
+                <div class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
+                    <img
+                        src="https://www.orphanednation.com/wp-content/uploads/2019/03/DSC_9983.jpg"
+                        alt="Historical streets of Samarkand"
+                        class="rounded-xl shadow-lg w-full md:w-1/2 h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <img
+                        src="https://live.staticflickr.com/7590/17155745276_698b4bee52_b.jpg"
+                        alt="Ancient pathways and architecture"
+                        class="rounded-xl shadow-lg w-full md:w-1/2 h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
                 </div>
             </div>
+            
 
             <!-- Siyob Bazaar Section -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="order-2 lg:order-1">
                     <div class="grid grid-cols-1 gap-4 md:gap-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Siyob_bozori_ichki_qismi.jpg" 
-                             alt="Inside Siyob Bazaar" 
-                             class="section-image w-full h-48 md:h-64 object-cover">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Siyob_bozori_ichki_qismi.jpg"
+                            alt="Inside Siyob Bazaar"
+                            class="rounded-xl shadow-lg w-full h-48 md:h-64 object-cover hover:scale-105 transition-transform duration-300"
+                        />
                         <div class="grid grid-cols-2 gap-3 md:gap-4">
-                            <img src="https://www.afisha.uz/uploads/media/2025/06/9e571a17a149e18904a1f420fd9f0d11_l.webp" 
-                                 alt="Fresh fruits and spices at Siyob Bazaar" 
-                                 class="section-image w-full h-32 md:h-48 object-cover">
-                            <img src="https://www.afisha.uz/uploads/media/2025/06/3a6474d8cb5860b4455632f45d361c8b_lf.webp" 
-                                 alt="Local vendors at Siyob Bazaar" 
-                                 class="section-image w-full h-32 md:h-48 object-cover">
+                            <img
+                                src="https://www.afisha.uz/uploads/media/2025/06/9e571a17a149e18904a1f420fd9f0d11_l.webp"
+                                alt="Fresh fruits and spices at Siyob Bazaar"
+                                class="rounded-xl shadow-lg w-full h-32 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                            <img
+                                src="https://www.afisha.uz/uploads/media/2025/06/3a6474d8cb5860b4455632f45d361c8b_lf.webp"
+                                alt="Local vendors at Siyob Bazaar"
+                                class="rounded-xl shadow-lg w-full h-32 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            />
                         </div>
                     </div>
                 </div>
                 <div class="order-1 lg:order-2">
-                    <p class="section-text text-lg md:text-xl leading-relaxed text-gray-700">
-                        <strong>Siyob Bozori</strong> is the heart of Samarkand's daily rhythm — a <em>vibrant and colorful bazaar</em> where tradition meets flavor. Here, you can find fresh fruits, spices, handmade goods, and the warm smiles of local sellers. It's the perfect place to feel the <strong>real spirit of the city</strong> and take a piece of Samarkand with you.
+                    <p id="siyobText" class="text-lg md:text-xl leading-relaxed text-gray-700">
+                        <strong>Siyob Bozori</strong> is the heart of Samarkand's daily rhythm — a
+                        <em>vibrant and colorful bazaar</em> where tradition meets flavor. Here, you can find fresh fruits,
+                        spices, handmade goods, and the warm smiles of local sellers. It's the perfect place to feel the
+                        <strong>real spirit of the city</strong> and take a piece of Samarkand with you.
                     </p>
                 </div>
             </div>
@@ -371,77 +512,139 @@
             <!-- Memorable Moments Section -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div>
-                    <p class="section-text text-lg md:text-xl leading-relaxed text-gray-700">
-                        We can help you capture memorable moments that make you feel like you're living in history. The best time plan to visit attractive places.
+                    <p id="memorableText" class="text-lg md:text-xl leading-relaxed text-gray-700">
+                        We can help you capture memorable moments that make you feel like you're living in history. The best
+                        time plan to visit attractive places.
                     </p>
                 </div>
                 <div>
-                    <img src="https://pixway.com/wp-content/uploads/2018/04/151003-registan15-show-1800xlarge.1459872078-uai-720x480.jpg" 
-                         alt="Memorable moments in Samarkand historical places" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
+                    <img
+                        src="https://pixway.com/wp-content/uploads/2018/04/151003-registan15-show-1800xlarge.1459872078-uai-720x480.jpg"
+                        alt="Memorable moments in Samarkand historical places"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
                 </div>
             </div>
 
-            <!-- Coffee Break Section - Text first, then 2 pictures side by side on mobile -->
+            <!-- Coffee Break Section -->
             <div class="space-y-6 md:space-y-8">
                 <div class="text-center">
-                    <p class="section-text text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
-                        Time to take a coffee break—not to rush, but to slow down and reflect. Just like in old times when great minds gathered to debate history, ideas, and the future over a simple cup of coffee.
+                    <p id="coffeeText" class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
+                        Time to take a coffee break—not to rush, but to slow down and reflect. Just like in old times when great
+                        minds gathered to debate history, ideas, and the future over a simple cup of coffee.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
-                    <img src="https://stlawyers.ca/wp-content/uploads/2022/09/coffee-breaks-ontario-employee-e1663248493305-1200x625.jpg" 
-                         alt="Coffee break time in peaceful setting" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                         alt="Traditional coffee culture" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
+                    <img
+                        src="https://stlawyers.ca/wp-content/uploads/2022/09/coffee-breaks-ontario-employee-e1663248493305-1200x625.jpg"
+                        alt="Coffee break time in peaceful setting"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <img
+                        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="Traditional coffee culture"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
                 </div>
             </div>
 
-            <!-- Historical Legends Section - Text first, then 2 pictures below -->
+            <!-- Historical Legends Section -->
             <div class="space-y-6 md:space-y-8">
                 <div class="text-center">
-                    <p class="section-text text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
-                        History isn't always lovely or filled with happy moments. Behind the beauty lie true legends—stories marked by brilliant minds and bloody periods of struggle and sacrifice.
+                    <p id="legendsText" class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
+                        History isn't always lovely or filled with happy moments. Behind the beauty lie true legends—stories
+                        marked by brilliant minds and bloody periods of struggle and sacrifice.
                     </p>
                 </div>
+                <div class="space-y-4 md:space-y-8 lg:space-y-8">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Shayboniylar_dahmasi_3.jpg/1200px-Shayboniylar_dahmasi_3.jpg"
+                        alt="Ulugbek Observatory historical site"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <img
+                        src="https://www.advantour.com/img/uzbekistan/samarkand/museums/ulugbek-observatory/ulugbek-observatory-banner.jpg"
+                        alt="Ulugbek Observatory ruins and artifacts"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                </div>
+            </div>
+
+            <!-- Same Place, Different Time Section -->
+            <div class="space-y-6 md:space-y-8">
+                <div class="text-center">
+                    <p id="samePlaceText" class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
+                        Same place, same road, but time is different. These places are aware of most suffering periods.
+                    </p>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSKRX3V-UkE7Qv-mghnI0BKY3HhoesflSzHqomtWkNm23PE8_xMWrDiHdnPWTMESqp6XbboffE" 
-                         alt="Ulugbek Observatory historical site" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
-                    <img src="https://www.advantour.com/img/uzbekistan/samarkand/museums/ulugbek-observatory/ulugbek-observatory-banner.jpg" 
-                         alt="Ulugbek Observatory ruins and artifacts" 
-                         class="section-image w-full h-48 md:h-80 object-cover">
+                    <img
+                        src="https://lh3.googleusercontent.com/proxy/zJIzZbTRlnGJGhYVX3daZjggU6vh4P2NJdJEOEoVJGaA6r0nO12_OKMgCJ7stuU5qqJ7_VqgvE7kXFt0bJYIIVIdiNQ47Tb9sA"
+                        alt="Historical site in different time period"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <img
+                        src="https://tourcentralasia.com/wp-content/uploads/2023/07/samarkand-saint-daniel-square-1024x768.jpeg"
+                        alt="Saint Daniel Square in Samarkand"
+                        class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="w-full md:w-2/3 lg:w-1/2">
+                        <img
+                            src="https://tourcentralasia.com/wp-content/uploads/2023/07/saint-daniel-mausoleum-scaled.jpeg"
+                            alt="Saint Daniel Mausoleum"
+                            class="rounded-xl shadow-lg w-full h-48 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Professional Footer - Simplified -->
-    <footer class="professional-footer py-12 px-4 mt-20">
+    <!-- Professional Footer -->
+    <footer class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600 py-12 px-4 mt-20 relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
         <div class="container mx-auto text-center">
             <div class="mb-8">
                 <h3 class="text-3xl font-bold text-white font-serif mb-4">Samarkand Travel</h3>
                 <p class="text-gray-300 leading-relaxed max-w-2xl mx-auto text-lg">
-                    Your gateway to the ancient wonders and timeless beauty of Samarkand. Experience history like never before with our expert guides and personalized tours.
+                    Your gateway to the ancient wonders and timeless beauty of Samarkand. Experience history like never before
+                    with our expert guides and personalized tours.
                 </p>
             </div>
 
-            <!-- Bottom Section -->
             <div class="border-t border-gray-600 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
-                        © 2024 Samarkand Travel. All rights reserved.
-                    </div>
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Samarkand Travel. All rights reserved.</div>
                     <div class="flex space-x-6">
                         <a href="/comment" class="text-gray-400 hover:text-white transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
                         </a>
                         <a href="/contact" class="text-gray-400 hover:text-white transition-colors">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
                         </a>
@@ -452,180 +655,206 @@
     </footer>
 
     <script>
-        // Dark mode functionality
+        // Global state
         let isDark = false;
-        const body = document.body;
-        
-        // Mobile elements
-        const mobileDarkToggle = document.getElementById('mobileDarkToggle');
-        const mobileMoonIcon = document.getElementById('mobileMoonIcon');
-        const mobileSunIcon = document.getElementById('mobileSunIcon');
-        const mobileModeText = document.getElementById('mobileModeText');
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
-        
-        // Desktop elements
-        const desktopMenuToggle = document.getElementById('desktopMenuToggle');
-        const desktopMenuDropdown = document.getElementById('desktopMenuDropdown');
-        const desktopDarkToggle = document.getElementById('desktopDarkToggle');
-        const desktopMoonIcon = document.getElementById('desktopMoonIcon');
-        const desktopSunIcon = document.getElementById('desktopSunIcon');
-        const desktopModeText = document.getElementById('desktopModeText');
-        
-        // Other elements
-        const heroOverlay = document.getElementById('heroOverlay');
-        const mainHeading = document.querySelector('.main-heading');
-        const tourGuideText = document.querySelector('.tour-guide-text');
-        const welcomeMessage = document.querySelector('.welcome-message');
-        const welcomeUnderline = document.querySelector('.welcome-underline');
-        const sectionHeading = document.querySelector('.section-heading');
-        const infoBoxes = document.querySelectorAll('.info-box');
-        const boxTexts = document.querySelectorAll('.box-text');
-        const sectionTexts = document.querySelectorAll('.section-text');
+        let showMobileMenu = false;
+        let showDesktopMenu = false;
+        let showWelcomeText = false;
+        let animatedText = "";
+        let typeInterval = null;
+        let animationTimeout = null;
 
-        function toggleDarkMode() {
-            isDark = !isDark;
-            
-            if (isDark) {
-                // Dark mode styles
-                body.classList.add('dark', 'bg-gray-900', 'text-white');
-                body.classList.remove('bg-white', 'text-gray-900');
-                
-                heroOverlay.className = 'absolute inset-0 bg-black bg-opacity-60';
-                
-                // Mobile icons
-                mobileMoonIcon.style.display = 'none';
-                mobileSunIcon.style.display = 'block';
-                mobileModeText.textContent = 'Light Mode';
-                mobileMenuToggle.className = 'flex items-center space-x-2 px-4 py-3 rounded-lg bg-gray-800 bg-opacity-90 backdrop-blur-sm border border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 text-white';
-                mobileMenuDropdown.className = 'menu-dropdown absolute top-full right-0 mt-2 w-52 bg-gray-800 bg-opacity-95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl';
-                
-                // Desktop icons
-                desktopMoonIcon.style.display = 'none';
-                desktopSunIcon.style.display = 'block';
-                desktopModeText.textContent = 'Light Mode';
-                desktopMenuToggle.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg bg-gray-800 bg-opacity-90 backdrop-blur-sm border border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 text-white';
-                desktopMenuDropdown.className = 'menu-dropdown absolute top-full right-0 mt-2 w-48 bg-gray-800 bg-opacity-95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl';
-                
-                // Content styles
-                mainHeading.className = 'main-heading text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-8 leading-relaxed text-white';
-                tourGuideText.className = 'tour-guide-text text-blue-400 font-serif italic';
-                welcomeMessage.className = 'welcome-message text-3xl md:text-5xl lg:text-7xl font-bold text-yellow-400 font-serif drop-shadow-lg';
-                welcomeUnderline.className = 'welcome-underline mt-4 w-24 md:w-32 h-1 mx-auto rounded-full bg-yellow-400';
-                
-                if (sectionHeading) {
-                    sectionHeading.className = 'section-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white font-serif mb-6';
-                }
-                
-                infoBoxes.forEach(box => {
-                    box.className = 'info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gray-800 border border-gray-700';
-                });
-                
-                boxTexts.forEach(text => {
-                    text.className = 'box-text text-base md:text-lg leading-relaxed text-gray-300';
-                });
-
-                sectionTexts.forEach(text => {
-                    text.className = 'section-text text-lg md:text-xl leading-relaxed text-gray-300';
-                });
-                
-            } else {
-                // Light mode styles
-                body.classList.remove('dark', 'bg-gray-900', 'text-white');
-                body.classList.add('bg-white', 'text-gray-900');
-                
-                heroOverlay.className = 'absolute inset-0 bg-black bg-opacity-40';
-                
-                // Mobile icons
-                mobileMoonIcon.style.display = 'block';
-                mobileSunIcon.style.display = 'none';
-                mobileModeText.textContent = 'Dark Mode';
-                mobileMenuToggle.className = 'flex items-center space-x-2 px-4 py-3 rounded-lg bg-white bg-opacity-90 backdrop-blur-sm border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700';
-                mobileMenuDropdown.className = 'menu-dropdown absolute top-full right-0 mt-2 w-52 bg-white bg-opacity-95 backdrop-blur-sm border border-gray-200 rounded-lg shadow-xl';
-                
-                // Desktop icons
-                desktopMoonIcon.style.display = 'block';
-                desktopSunIcon.style.display = 'none';
-                desktopModeText.textContent = 'Dark Mode';
-                desktopMenuToggle.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg bg-white bg-opacity-90 backdrop-blur-sm border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700';
-                desktopMenuDropdown.className = 'menu-dropdown absolute top-full right-0 mt-2 w-48 bg-white bg-opacity-95 backdrop-blur-sm border border-gray-200 rounded-lg shadow-xl';
-                
-                // Content styles
-                mainHeading.className = 'main-heading text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-8 leading-relaxed text-gray-900';
-                tourGuideText.className = 'tour-guide-text text-blue-600 font-serif italic';
-                welcomeMessage.className = 'welcome-message text-3xl md:text-5xl lg:text-7xl font-bold text-orange-600 font-serif drop-shadow-lg';
-                welcomeUnderline.className = 'welcome-underline mt-4 w-24 md:w-32 h-1 mx-auto rounded-full bg-orange-600';
-                
-                if (sectionHeading) {
-                    sectionHeading.className = 'section-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 font-serif mb-6';
-                }
-                
-                infoBoxes[0].className = 'info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200';
-                infoBoxes[1].className = 'info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200';
-                infoBoxes[2].className = 'info-box p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 md:col-span-2 lg:col-span-1 bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200';
-                
-                boxTexts.forEach(text => {
-                    text.className = 'box-text text-base md:text-lg leading-relaxed text-gray-700';
-                });
-
-                sectionTexts.forEach(text => {
-                    text.className = 'section-text text-lg md:text-xl leading-relaxed text-gray-700';
-                });
-            }
-        }
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            mobileMenuDropdown.classList.toggle('show');
-        }
-
-        // Desktop menu toggle
-        function toggleDesktopMenu() {
-            desktopMenuDropdown.classList.toggle('show');
-        }
-
-        // Close menus when clicking outside
-        document.addEventListener('click', function(event) {
-            // Close mobile menu
-            if (!mobileMenuToggle.contains(event.target) && !mobileMenuDropdown.contains(event.target)) {
-                mobileMenuDropdown.classList.remove('show');
-            }
-            
-            // Close desktop menu
-            if (!desktopMenuToggle.contains(event.target) && !desktopMenuDropdown.contains(event.target)) {
-                desktopMenuDropdown.classList.remove('show');
-            }
-        });
-
-        // Event listeners
-        mobileDarkToggle.addEventListener('click', toggleDarkMode);
-        desktopDarkToggle.addEventListener('click', toggleDarkMode);
-        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-        desktopMenuToggle.addEventListener('click', toggleDesktopMenu);
-
-        // Animated welcome text functionality
-        const welcomeTextContainer = document.getElementById('welcomeTextContainer');
-        const animatedTextElement = document.getElementById('animatedText');
         const welcomeMessageText = "Welcome to Samarkand Travel official website";
 
-        function runAnimation() {
-            welcomeTextContainer.style.display = 'none';
-            animatedTextElement.textContent = '';
+        // DOM elements
+        const body = document.getElementById('body');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+        const desktopMenuToggle = document.getElementById('desktopMenuToggle');
+        const desktopMenuDropdown = document.getElementById('desktopMenuDropdown');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const desktopThemeToggle = document.getElementById('desktopThemeToggle');
+        const welcomeTextContainer = document.getElementById('welcomeTextContainer');
+        const animatedTextElement = document.getElementById('animatedText');
+        const heroOverlay = document.getElementById('heroOverlay');
 
-            setTimeout(() => {
-                welcomeTextContainer.style.display = 'flex';
+        // Theme elements
+        const mobileSunIcon = document.getElementById('mobileSunIcon');
+        const mobileMoonIcon = document.getElementById('mobileMoonIcon');
+        const mobileThemeText = document.getElementById('mobileThemeText');
+        const desktopSunIcon = document.getElementById('desktopSunIcon');
+        const desktopMoonIcon = document.getElementById('desktopMoonIcon');
+        const desktopThemeText = document.getElementById('desktopThemeText');
+
+        // Content elements that need theme updates
+        const mainTitle = document.getElementById('mainTitle');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        const welcomeUnderline = document.getElementById('welcomeUnderline');
+        const wantToTryTitle = document.getElementById('wantToTryTitle');
+        const foodText = document.getElementById('foodText');
+        const accommodationText = document.getElementById('accommodationText');
+        const museumsText = document.getElementById('museumsText');
+        const historicalRoadsText = document.getElementById('historicalRoadsText');
+        const siyobText = document.getElementById('siyobText');
+        const memorableText = document.getElementById('memorableText');
+        const coffeeText = document.getElementById('coffeeText');
+        const legendsText = document.getElementById('legendsText');
+        const samePlaceText = document.getElementById('samePlaceText');
+
+        // Box elements
+        const box1 = document.getElementById('box1');
+        const box2 = document.getElementById('box2');
+        const box3 = document.getElementById('box3');
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            isDark = !isDark;
+            updateTheme();
+        }
+
+        // Update theme
+        function updateTheme() {
+            if (isDark) {
+                body.className = 'min-h-screen transition-colors duration-300 dark bg-gray-900 text-white';
+                heroOverlay.className = 'absolute inset-0 bg-black bg-opacity-60';
+                
+                // Update menu buttons
+                mobileMenuToggle.className = 'flex items-center space-x-2 px-4 py-3 rounded-lg backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 bg-gray-800 bg-opacity-90 border-gray-700 text-white';
+                desktopMenuToggle.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 bg-gray-800 bg-opacity-90 border-gray-700 text-white';
+                
+                // Update dropdowns
+                mobileMenuDropdown.className = mobileMenuDropdown.className.replace('bg-white bg-opacity-95 border-gray-200', 'bg-gray-800 bg-opacity-95 border-gray-700');
+                desktopMenuDropdown.className = desktopMenuDropdown.className.replace('bg-white bg-opacity-95 border-gray-200', 'bg-gray-800 bg-opacity-95 border-gray-700');
+                
+                // Update text colors
+                mainTitle.className = 'text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-8 leading-relaxed text-white';
+                welcomeMessage.className = 'text-3xl md:text-5xl lg:text-7xl font-bold font-serif drop-shadow-lg text-yellow-400';
+                welcomeUnderline.className = 'mt-4 w-24 md:w-32 h-1 mx-auto rounded-full bg-yellow-400';
+                wantToTryTitle.className = 'text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-6 text-white';
+                
+                // Update content text
+                foodText.className = 'text-lg md:text-xl leading-relaxed text-gray-300';
+                accommodationText.className = 'text-lg md:text-xl leading-relaxed text-gray-300';
+                museumsText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300';
+                historicalRoadsText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300';
+                siyobText.className = 'text-lg md:text-xl leading-relaxed text-gray-300';
+                memorableText.className = 'text-lg md:text-xl leading-relaxed text-gray-300';
+                coffeeText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300';
+                legendsText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300';
+                samePlaceText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300';
+                
+                // Update boxes
+                box1.className = 'p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gray-800 border border-gray-700';
+                box2.className = 'p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gray-800 border border-gray-700';
+                box3.className = 'p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 md:col-span-2 lg:col-span-1 bg-gray-800 border border-gray-700';
+                
+                // Update box text
+                box1.querySelector('p').className = 'text-base md:text-lg leading-relaxed text-gray-300';
+                box2.querySelector('p').className = 'text-base md:text-lg leading-relaxed text-gray-300';
+                box3.querySelector('p').className = 'text-base md:text-lg leading-relaxed text-gray-300';
+                
+                // Update theme icons
+                mobileSunIcon.classList.remove('hidden');
+                mobileMoonIcon.classList.add('hidden');
+                mobileThemeText.textContent = 'Light Mode';
+                
+                desktopSunIcon.classList.remove('hidden');
+                desktopMoonIcon.classList.add('hidden');
+                desktopThemeText.textContent = 'Light Mode';
+            } else {
+                body.className = 'min-h-screen transition-colors duration-300 bg-white text-gray-900';
+                heroOverlay.className = 'absolute inset-0 bg-black bg-opacity-40';
+                
+                // Update menu buttons
+                mobileMenuToggle.className = 'flex items-center space-x-2 px-4 py-3 rounded-lg backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 bg-white bg-opacity-90 border-gray-200 text-gray-700';
+                desktopMenuToggle.className = 'flex items-center space-x-2 px-4 py-2 rounded-lg backdrop-blur-sm border shadow-lg hover:shadow-xl transition-all duration-300 bg-white bg-opacity-90 border-gray-200 text-gray-700';
+                
+                // Update dropdowns
+                mobileMenuDropdown.className = mobileMenuDropdown.className.replace('bg-gray-800 bg-opacity-95 border-gray-700', 'bg-white bg-opacity-95 border-gray-200');
+                desktopMenuDropdown.className = desktopMenuDropdown.className.replace('bg-gray-800 bg-opacity-95 border-gray-700', 'bg-white bg-opacity-95 border-gray-200');
+                
+                // Update text colors
+                mainTitle.className = 'text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-8 leading-relaxed text-gray-900';
+                welcomeMessage.className = 'text-3xl md:text-5xl lg:text-7xl font-bold font-serif drop-shadow-lg text-orange-600';
+                welcomeUnderline.className = 'mt-4 w-24 md:w-32 h-1 mx-auto rounded-full bg-orange-600';
+                wantToTryTitle.className = 'text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-6 text-gray-900';
+                
+                // Update content text
+                foodText.className = 'text-lg md:text-xl leading-relaxed text-gray-700';
+                accommodationText.className = 'text-lg md:text-xl leading-relaxed text-gray-700';
+                museumsText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700';
+                historicalRoadsText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700';
+                siyobText.className = 'text-lg md:text-xl leading-relaxed text-gray-700';
+                memorableText.className = 'text-lg md:text-xl leading-relaxed text-gray-700';
+                coffeeText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700';
+                legendsText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700';
+                samePlaceText.className = 'text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700';
+                
+                // Update boxes
+                box1.className = 'p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200';
+                box2.className = 'p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 bg-gradient-to-br from-green-50 to-emerald-100 border border-green-200';
+                box3.className = 'p-6 md:p-8 rounded-2xl shadow-xl transition-transform hover:scale-105 md:col-span-2 lg:col-span-1 bg-gradient-to-br from-purple-50 to-violet-100 border border-purple-200';
+                
+                // Update box text
+                box1.querySelector('p').className = 'text-base md:text-lg leading-relaxed text-gray-700';
+                box2.querySelector('p').className = 'text-base md:text-lg leading-relaxed text-gray-700';
+                box3.querySelector('p').className = 'text-base md:text-lg leading-relaxed text-gray-700';
+                
+                // Update theme icons
+                mobileSunIcon.classList.add('hidden');
+                mobileMoonIcon.classList.remove('hidden');
+                mobileThemeText.textContent = 'Dark Mode';
+                
+                desktopSunIcon.classList.add('hidden');
+                desktopMoonIcon.classList.remove('hidden');
+                desktopThemeText.textContent = 'Dark Mode';
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            showMobileMenu = !showMobileMenu;
+            if (showMobileMenu) {
+                mobileMenuDropdown.className = mobileMenuDropdown.className.replace('opacity-0 invisible -translate-y-2', 'opacity-100 visible translate-y-0');
+            } else {
+                mobileMenuDropdown.className = mobileMenuDropdown.className.replace('opacity-100 visible translate-y-0', 'opacity-0 invisible -translate-y-2');
+            }
+        }
+
+        // Toggle desktop menu
+        function toggleDesktopMenu() {
+            showDesktopMenu = !showDesktopMenu;
+            if (showDesktopMenu) {
+                desktopMenuDropdown.className = desktopMenuDropdown.className.replace('opacity-0 invisible -translate-y-2', 'opacity-100 visible translate-y-0');
+            } else {
+                desktopMenuDropdown.className = desktopMenuDropdown.className.replace('opacity-100 visible translate-y-0', 'opacity-0 invisible -translate-y-2');
+            }
+        }
+
+        // Animation function
+        function runAnimation() {
+            showWelcomeText = false;
+            animatedText = "";
+            welcomeTextContainer.classList.add('hidden');
+            animatedTextElement.textContent = "";
+
+            animationTimeout = setTimeout(() => {
+                showWelcomeText = true;
+                welcomeTextContainer.classList.remove('hidden');
                 let index = 0;
 
-                const typeInterval = setInterval(() => {
+                typeInterval = setInterval(() => {
                     if (index <= welcomeMessageText.length) {
-                        animatedTextElement.textContent = welcomeMessageText.slice(0, index);
+                        animatedText = welcomeMessageText.slice(0, index);
+                        animatedTextElement.textContent = animatedText;
                         index++;
                     } else {
                         clearInterval(typeInterval);
 
                         setTimeout(() => {
-                            welcomeTextContainer.style.display = 'none';
-                            animatedTextElement.textContent = '';
+                            showWelcomeText = false;
+                            welcomeTextContainer.classList.add('hidden');
+                            animatedText = "";
 
                             setTimeout(() => {
                                 runAnimation();
@@ -636,8 +865,40 @@
             }, 2000);
         }
 
-        // Start the animation cycle when page loads
-        window.addEventListener('load', runAnimation);
+        // Handle clicks outside menus
+        function handleClickOutside(event) {
+            if (!event.target.closest('#mobileMenuToggle') && !event.target.closest('#mobileMenuDropdown')) {
+                if (showMobileMenu) {
+                    showMobileMenu = false;
+                    mobileMenuDropdown.className = mobileMenuDropdown.className.replace('opacity-100 visible translate-y-0', 'opacity-0 invisible -translate-y-2');
+                }
+            }
+            if (!event.target.closest('#desktopMenuToggle') && !event.target.closest('#desktopMenuDropdown')) {
+                if (showDesktopMenu) {
+                    showDesktopMenu = false;
+                    desktopMenuDropdown.className = desktopMenuDropdown.className.replace('opacity-100 visible translate-y-0', 'opacity-0 invisible -translate-y-2');
+                }
+            }
+        }
+
+        // Event listeners
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        desktopMenuToggle.addEventListener('click', toggleDesktopMenu);
+        mobileThemeToggle.addEventListener('click', toggleDarkMode);
+        desktopThemeToggle.addEventListener('click', toggleDarkMode);
+        document.addEventListener('click', handleClickOutside);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            runAnimation();
+            updateTheme();
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (typeInterval) clearInterval(typeInterval);
+            if (animationTimeout) clearTimeout(animationTimeout);
+        });
     </script>
 </body>
 </html>
