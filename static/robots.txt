@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samarkand-travel.fly.dev/sitemap.xml
